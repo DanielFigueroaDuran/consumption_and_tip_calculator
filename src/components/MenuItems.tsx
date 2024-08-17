@@ -3,7 +3,7 @@ import { MenuItems } from '../types';
 
 type MenuItemsProps = {
       item: MenuItems,
-      addItem: () => void
+      addItem: (item: MenuItems) => void
 }
 
 const MenuItems = ({ item, addItem }: MenuItemsProps) => {
@@ -12,7 +12,7 @@ const MenuItems = ({ item, addItem }: MenuItemsProps) => {
       return (
             <button
                   className='border border-teal-400 w-full flex items-center justify-between p-3 hover:bg-teal-200'
-                  onClick={() => addItem()}
+                  onClick={() => addItem(item)}
             >
                   <p className="">{name}</p>
                   <p className="font-black">$ {price}</p>

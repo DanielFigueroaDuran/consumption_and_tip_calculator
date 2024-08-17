@@ -1,4 +1,6 @@
-export const menuItems = [
+import { MenuItems } from "../types";
+
+export const menuItems: MenuItems[] = [
       {
             "id": 1,
             "name": "Pizza a la Leña Chica",

@@ -20,10 +20,19 @@ export default function useOrder() {
             }
 
       }
-      //console.log(order);
+
+      const removeItem = (id: MenuItems['id']) => {
+
+            setOrder(order.filter(item => item.id !== id));
+
+
+            //console.log('eliminando', id);
+      }
+
 
       return {
             order,
-            addItem
+            addItem,
+            removeItem
       }
 }

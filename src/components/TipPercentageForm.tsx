@@ -3,29 +3,31 @@ import type { Dispatch, SetStateAction } from 'react'
 import { tipOptions } from '../data/db'
 
 type TipPercentageFormProps = {
-      setTip: Dispatch<SetStateAction<number>>
+      setTip: Dispatch<SetStateAction<number>>,
+      tip: number
 }
 
-const TipPercentageForm = ({ setTip }: TipPercentageFormProps) => {
+const TipPercentageForm = ({ setTip, tip }: TipPercentageFormProps) => {
 
       return (
             <div>
                   <h3 className="font-bold text-2xl">Propinas</h3>
 
                   <form>
-                        {tipOptions.map(tip => (
+                        {tipOptions.map(tipOption => (
                               <div
                                     className='flex gap-2 p-2'
-                                    key={tip.id}
+                                    key={tipOption.id}
                               >
                                     <input
                                           type='radio'
-                                          id={tip.id}
+                                          id={tipOption.id}
                                           name='tip'
-                                          value={tip.value}
+                                          value={tipOption.value}
                                           onChange={e => setTip(+ e.target.value)}
+                                          checked={tipOption.value === tip}
                                     />
-                                    <label htmlFor={tip.id}>{tip.label}</label>
+                                    <label htmlFor={tipOption.id}>{tipOption.label}</label>
                               </div>
                         ))}
                   </form>
